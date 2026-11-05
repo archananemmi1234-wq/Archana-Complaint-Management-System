@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ComplaintCare - Admin Dashboard</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f5fc;
+    color: #282746;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* LOGIN */
+.login-container {
+    width: 390px;
+    max-width: 92%;
+    margin: 90px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px #0002;
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #5946a5;
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    text-align: center;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #5946a5;
+}
+
+button {
+    padding: 12px 18px;
+    background: #5946a5;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #392b79;
+}
+
+.login-container button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.message {
+    margin-top: 12px;
+    color: #d32f2f;
+    text-align: center;
+}
+
+/* DASHBOARD */
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: #28234f;
+    color: white;
+    padding: 25px 15px;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar button {
+    width: 100%;
+    display: block;
+    text-align: left;
+    background: transparent;
+    margin: 5px 0;
+    padding: 14px;
+    color: white;
+}
+
+.sidebar button:hover {
+    background: #5946a5;
+}
+
+.arrow {
+    float: right;
+}
+
+.dropdown-content {
+    display: none;
+    padding-left: 15px;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-content button {
+    background: #393365;
+    font-size: 13px;
+}
+
+.main {
+    flex: 1;
+    min-width: 0;
+    padding: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.header p {
+    color: #777;
+    margin-top: 7px;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px #0001;
+    border-left: 5px solid #5946a5;
+}
+
+.card h3 {
+    color: #777;
+    font-size: 15px;
+}
+
+.card h1 {
+    color: #5946a5;
+    margin-top: 12px;
+}
+
+/* TABLES */
+.section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th, td {
+    padding: 13px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background: #5946a5;
+    color: white;
+}
+
+tr:hover {
+    background: #f7f6ff;
+}
+
+/* UPDATE AND DELETE BUTTONS */
+#complaintsTable td:last-child {
+    min-width: 180px;
+    white-space: nowrap;
+}
+
+#complaintsTable .action-btn {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 8px 12px;
+    margin: 4px;
+    width: auto;
+    background: #5946a5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#complaintsTable .action-btn:last-child {
+    background: #dc3545;
+}
+
+#complaintsTable .action-btn:hover {
+    opacity: 0.85 !important;
+}
+
+.status-select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+@media(max-width: 700px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .main {
+        padding: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN PANEL -->
+<div id="loginPanel" class="login-container">
+
+    <h2>ComplaintCare</h2>
+    <p>Admin Login Portal</p>
+
+    <form id="adminLoginForm">
+
+        <input
+            type="email"
+            id="adminEmail"
+            placeholder="Enter Admin Email"
+            required
+        >
+
+        <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter Password"
+            required
+        >
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <div id="loginMessage" class="message"></div>
+</div>
+
+
+<!-- ADMIN DASHBOARD -->
+<div id="adminPanel" class="layout hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <h2>ComplaintCare</h2>
+
+        <button onclick="showSection('overview')">
+            🏠 Overview
+        </button>
+
+        <button onclick="toggleDropdown('usersDropdown', this)">
+            👥 Users <span class="arrow">▼</span>
+        </button>
+
+        <div id="usersDropdown" class="dropdown-content">
+            <button onclick="showSection('usersSection'); loadUsers()">
+                View All Users
+            </button>
+        </div>
+
+        <button onclick="toggleDropdown('departmentsDropdown', this)">
+            🏢 Departments <span class="arrow">▼</span>
+        </button>
+
+        <div id="departmentsDropdown" class="dropdown-content">
+            <button onclick="showSection('departmentsSection'); loadDepartments()">
+                View Departments
+            </button>
+        </div>
+
+        <button onclick="toggleDropdown('complaintsDropdown', this)">
+            📋 Complaints <span class="arrow">▼</span>
+        </button>
+
+        <div id="complaintsDropdown" class="dropdown-content">
+            <button onclick="showSection('complaintsSection'); loadComplaints()">
+                View All Complaints
+            </button>
+        </div>
+
+        <button onclick="logout()">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <div class="header">
+
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p>Welcome to ComplaintCare Management System</p>
+            </div>
+
+            <button onclick="refreshDashboard()">Refresh</button>
+
+        </div>
+
+
+        <!-- OVERVIEW -->
+        <div id="overview" class="section">
+
+            <h2>Dashboard Overview</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Total Users</h3>
+                    <h1 id="totalUsers">0</h1>
+                </div>
+
+                <div class="card">
+                    <h3>Total Departments</h3>
+                    <h1 id="totalDepartments">0</h1>
+                </div>
+
+                <div class="card">
+                    <h3>Total Complaints</h3>
+                    <h1 id="totalComplaints">0</h1>
+                </div>
+
+                <div class="card">
+                    <h3>Pending Complaints</h3>
+                    <h1 id="pendingComplaints">0</h1>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- USERS TABLE -->
+        <div id="usersSection" class="section hidden">
+
+            <h2>Registered Users</h2>
+
+            <input
+                id="userSearch"
+                placeholder="Search users..."
+                oninput="filterTable('usersTable', this.value)"
+            >
+
+            <table id="usersTable">
+
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+
+                <tbody></tbody>
+
+            </table>
+        </div>
+
+
+        <!-- DEPARTMENTS TABLE -->
+        <div id="departmentsSection" class="section hidden">
+
+            <h2>Departments</h2>
+
+            <table id="departmentsTable">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Department Name</th>
+                        <th>Contact Person</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+
+                <tbody></tbody>
+
+            </table>
+        </div>
+
+
+        <!-- COMPLAINTS TABLE -->
+        <div id="complaintsSection" class="section hidden">
+
+            <h2>All Complaints</h2>
+
+            <input
+                id="complaintSearch"
+                placeholder="Search complaints..."
+                oninput="filterTable('complaintsTable', this.value)"
+            >
+
+            <table id="complaintsTable">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Subject</th>
+                        <th>Department</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody></tbody>
+
+            </table>
+        </div>
+
+        <p id="dashboardMessage" class="message"></p>
+
+    </main>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

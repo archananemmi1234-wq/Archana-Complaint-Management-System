@@ -1,0 +1,473 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works | ComplaintCare</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: #f7f6ff;
+    color: #29264d;
+}
+
+nav {
+    background: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 20px #25204712;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    color: #654ee4;
+}
+
+.logo span {
+    color: #29264d;
+}
+
+.links {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.links a {
+    text-decoration: none;
+    color: #49465e;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.links a:hover {
+    color: #7258e8;
+}
+
+/* HERO */
+.hero {
+    padding: 85px 20px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(120deg, #252052, #614cc6);
+}
+
+.hero h1 {
+    font-size: 43px;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: #c8baff;
+}
+
+.hero p {
+    max-width: 680px;
+    margin: auto;
+    color: #e5e0ff;
+    line-height: 1.8;
+}
+
+/* INTRO */
+.intro {
+    padding: 75px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.intro img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.intro h2 {
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.intro h2 span {
+    color: #7058df;
+}
+
+.intro p {
+    color: #77758b;
+    line-height: 1.9;
+}
+
+/* STEPS */
+.steps-section {
+    background: #eeecff;
+    padding: 75px 8%;
+    text-align: center;
+}
+
+.title {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    color: #77758b;
+    line-height: 1.8;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.step-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: left;
+    box-shadow: 0 8px 25px #30266e10;
+    transition: 0.3s;
+}
+
+.step-card:hover {
+    transform: translateY(-7px);
+}
+
+.step-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.number {
+    display: inline-flex;
+    background: #654ee4;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.step-card h3 {
+    margin-bottom: 12px;
+}
+
+.step-card p {
+    color: #77758b;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* STATUS */
+.status-section {
+    padding: 75px 8%;
+    text-align: center;
+}
+
+.status-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.status-card {
+    padding: 30px 20px;
+    background: white;
+    border-radius: 17px;
+    box-shadow: 0 5px 25px #30266e10;
+}
+
+.status-icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.status-card h3 {
+    margin-bottom: 12px;
+}
+
+.status-card p {
+    color: #77758b;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* BANNER */
+.banner {
+    margin: 0 8% 70px;
+    border-radius: 22px;
+    padding: 55px 25px;
+    background: linear-gradient(120deg, #30266e, #765ce7);
+    color: white;
+    text-align: center;
+}
+
+.banner h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.banner p {
+    color: #e5e0ff;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.banner a {
+    display: inline-block;
+    background: white;
+    color: #5944c6;
+    text-decoration: none;
+    padding: 14px 25px;
+    border-radius: 9px;
+    font-weight: bold;
+}
+
+footer {
+    background: #211d45;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+footer p {
+    color: #c4c0dc;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+@media(max-width: 850px) {
+    nav {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .links {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .intro {
+        grid-template-columns: 1fr;
+    }
+
+    .steps, .status-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">COMPLAINT<span>CARE</span></div>
+
+    <div class="links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="how.html">How It Works</a>
+        <a href="features.html">Features</a>
+        <a href="dashboard.html">Dashboard</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>How <span>It Works</span></h1>
+    <p>
+        A simple step-by-step process to submit complaints,
+        connect with departments and track complaint progress.
+    </p>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+
+    <img
+    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1000"
+    alt="People working on documents">
+
+    <div>
+        <h2>Simple Process. <span>Better Management.</span></h2>
+
+        <p>
+            ComplaintCare makes the complaint process easier
+            for users and administrators. Users can register,
+            submit complaints and monitor updates from one place.
+        </p>
+
+        <br>
+
+        <p>
+            Administrators can review submitted complaints,
+            assign departments and update their progress.
+            This helps maintain an organized complaint system.
+        </p>
+    </div>
+
+</section>
+
+<!-- STEPS -->
+<section class="steps-section">
+
+    <h2 class="title">Three Simple Steps</h2>
+
+    <p class="subtitle">
+        Follow these steps to use our Online Complaint Management System.
+    </p>
+
+    <div class="steps">
+
+        <div class="step-card">
+
+            <img
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800"
+            alt="User using a laptop">
+
+            <div class="number">1</div>
+
+            <h3>Register & Login</h3>
+
+            <p>
+                Create your account by entering your basic
+                details. Login securely to access the
+                complaint management dashboard.
+            </p>
+
+        </div>
+
+        <div class="step-card">
+
+            <img
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800"
+            alt="Submitting information online">
+
+            <div class="number">2</div>
+
+            <h3>Submit Your Complaint</h3>
+
+            <p>
+                Select the relevant department, enter a
+                complaint subject and describe your issue.
+                Submit the details through the online form.
+            </p>
+
+        </div>
+
+        <div class="step-card">
+
+            <img
+            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800"
+            alt="Team reviewing information">
+
+            <div class="number">3</div>
+
+            <h3>Track & Get Updates</h3>
+
+            <p>
+                View your complaint history and check
+                its current status. Administrators can
+                review and update the complaint.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATUS -->
+<section class="status-section">
+
+    <h2 class="title">Understand Complaint Status</h2>
+
+    <p class="subtitle">
+        Every complaint moves through a status based on its progress.
+    </p>
+
+    <div class="status-cards">
+
+        <div class="status-card">
+            <div class="status-icon">🕒</div>
+            <h3>Pending</h3>
+            <p>
+                The complaint has been submitted and is
+                waiting for review.
+            </p>
+        </div>
+
+        <div class="status-card">
+            <div class="status-icon">⚙️</div>
+            <h3>In Progress</h3>
+            <p>
+                The complaint is being reviewed or handled
+                by the assigned department.
+            </p>
+        </div>
+
+        <div class="status-card">
+            <div class="status-icon">✅</div>
+            <h3>Resolved</h3>
+            <p>
+                The complaint has been addressed and
+                marked as resolved.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="banner">
+
+    <h2>Ready to Submit Your Complaint?</h2>
+
+    <p>
+        Access your dashboard and submit your complaint
+        through our simple online platform.
+    </p>
+
+    <a href="dashboard.html">Go to Dashboard →</a>
+
+</section>
+
+<footer>
+    <h2>COMPLAINTCARE</h2>
+    <p>Online Complaint Management System</p>
+    <p>© 2026 ComplaintCare. All Rights Reserved.</p>
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>
+```

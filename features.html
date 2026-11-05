@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ComplaintCare - Features</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5fc;
+    color: #292653;
+}
+
+header {
+    background: #171735;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #a99aff;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #b9aaff;
+}
+
+.hero {
+    min-height: 320px;
+    background: linear-gradient(120deg, #27245b, #7865d0);
+    color: white;
+    padding: 85px 8%;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.container {
+    width: 88%;
+    max-width: 1200px;
+    margin: 55px auto;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: #777;
+    line-height: 1.7;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px 24px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+}
+
+.feature-icon {
+    width: 58px;
+    height: 58px;
+    background: #eeeaff;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    margin-bottom: 12px;
+    color: #302b69;
+}
+
+.feature-card p {
+    color: #777;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.info-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: center;
+    margin-top: 65px;
+}
+
+.info-section img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.info-text h2 {
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.info-text p {
+    color: #777;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.info-text ul {
+    padding-left: 22px;
+    line-height: 2;
+}
+
+.user-admin {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.role-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.role-card h3 {
+    margin-bottom: 18px;
+    color: #49399b;
+}
+
+.role-card ul {
+    padding-left: 22px;
+    line-height: 2.1;
+    color: #666;
+}
+
+.cta {
+    background: linear-gradient(120deg, #27245b, #6552b8);
+    color: white;
+    text-align: center;
+    padding: 55px 20px;
+    border-radius: 18px;
+    margin: 60px 0;
+}
+
+.cta h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.cta p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.cta a {
+    display: inline-block;
+    padding: 13px 25px;
+    background: white;
+    color: #49399b;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer {
+    background: #171735;
+    color: white;
+    text-align: center;
+    padding: 27px;
+}
+
+@media(max-width: 850px) {
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .info-section {
+        grid-template-columns: 1fr;
+    }
+
+    .user-admin {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        padding: 18px 5%;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: 93%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Complaint<span>Care.</span></div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="how.html">How It Works</a>
+        <a href="features.html">Features</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Powerful Features</h1>
+    <p>
+        ComplaintCare provides a simple and organized platform
+        to submit complaints, monitor progress and manage
+        complaint records efficiently.
+    </p>
+</section>
+
+<main class="container">
+
+    <section>
+        <div class="section-heading">
+            <h2>What Our System Offers</h2>
+            <p>Useful tools that make complaint management easier.</p>
+        </div>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>Easy Complaint Submission</h3>
+                <p>Students can submit complaints online by entering a subject, category, department and description.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Complaint Tracking</h3>
+                <p>Users can view their submitted complaints and check the latest status from their dashboard.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>Secure Login</h3>
+                <p>Separate user and administrator login with password protection and session management.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🏢</div>
+                <h3>Department Management</h3>
+                <p>Complaints can be directed to the appropriate college department for better organization.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h3>Admin Control</h3>
+                <p>Administrators can view complaint records and update complaint status when required.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Dashboard Overview</h3>
+                <p>Summary cards help administrators understand the number of users, departments and complaints.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="info-section">
+
+        <div>
+            <img
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1000"
+            alt="Modern office workspace">
+        </div>
+
+        <div class="info-text">
+            <h2>Organized Complaint Management</h2>
+
+            <p>
+                ComplaintCare reduces manual complaint handling
+                by storing complaint details in a centralized
+                database.
+            </p>
+
+            <p>
+                Users can submit complaints through the website,
+                while administrators can review records and
+                manage their progress.
+            </p>
+
+            <ul>
+                <li>Simple and user-friendly interface</li>
+                <li>Centralized complaint records</li>
+                <li>Department-wise complaint organization</li>
+                <li>Separate user and admin access</li>
+                <li>Quick complaint status updates</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section>
+        <div class="section-heading">
+            <h2>User and Admin Features</h2>
+            <p>Different facilities for students and administrators.</p>
+        </div>
+
+        <div class="user-admin">
+
+            <div class="role-card">
+                <h3>👨‍🎓 User Features</h3>
+                <ul>
+                    <li>Create a new account</li>
+                    <li>Login securely</li>
+                    <li>Submit new complaints</li>
+                    <li>Select complaint category</li>
+                    <li>Choose a department</li>
+                    <li>View personal complaints</li>
+                    <li>Track complaint status</li>
+                    <li>Logout securely</li>
+                </ul>
+            </div>
+
+            <div class="role-card">
+                <h3>👨‍💼 Administrator Features</h3>
+                <ul>
+                    <li>Administrator login</li>
+                    <li>View total users</li>
+                    <li>View department details</li>
+                    <li>View all complaints</li>
+                    <li>Search complaint records</li>
+                    <li>Update complaint status</li>
+                    <li>Delete complaint records</li>
+                    <li>View dashboard statistics</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Ready to Use ComplaintCare?</h2>
+        <p>
+            Visit the dashboard to create an account,
+            submit a complaint or access administrator features.
+        </p>
+        <a href="dashboard.html">Go to Dashboard</a>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 ComplaintCare | Online Complaint Management System</p>
+</footer>
+
+</body>
+</html>

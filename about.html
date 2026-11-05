@@ -1,0 +1,420 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | ComplaintCare</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: #f7f6ff;
+    color: #29264d;
+}
+
+/* NAVBAR */
+nav {
+    background: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 20px #25204712;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    color: #654ee4;
+}
+
+.logo span {
+    color: #29264d;
+}
+
+.links {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.links a {
+    text-decoration: none;
+    color: #49465e;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.links a:hover {
+    color: #7258e8;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(120deg, #252052, #614cc6);
+    color: white;
+    text-align: center;
+    padding: 85px 20px;
+}
+
+.hero h1 {
+    font-size: 43px;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #c8baff;
+}
+
+.hero p {
+    max-width: 680px;
+    margin: auto;
+    line-height: 1.8;
+    color: #e5e0ff;
+}
+
+/* ABOUT */
+.about {
+    padding: 80px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 22px;
+    box-shadow: 0 15px 35px #30266e25;
+}
+
+.about-content h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+    color: #30295f;
+}
+
+.about-content h2 span {
+    color: #7058df;
+}
+
+.about-content p {
+    color: #77758b;
+    line-height: 1.9;
+    margin-bottom: 17px;
+}
+
+.about-points {
+    margin-top: 22px;
+}
+
+.point {
+    display: flex;
+    gap: 13px;
+    margin-bottom: 15px;
+    align-items: center;
+    font-weight: 600;
+}
+
+.check {
+    background: #e9e4ff;
+    color: #654ee4;
+    padding: 9px;
+    border-radius: 50%;
+}
+
+/* MISSION */
+.mission {
+    padding: 75px 8%;
+    background: #eeecff;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 33px;
+    margin-bottom: 15px;
+}
+
+.section-desc {
+    max-width: 650px;
+    margin: auto;
+    color: #77758b;
+    line-height: 1.8;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 8px 25px #30266e10;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    margin-bottom: 12px;
+    color: #342d69;
+}
+
+.card-content p {
+    color: #77758b;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* VISION */
+.vision {
+    margin: 70px 8%;
+    padding: 55px 30px;
+    background: linear-gradient(120deg, #30266e, #765ce7);
+    color: white;
+    text-align: center;
+    border-radius: 22px;
+}
+
+.vision h2 {
+    font-size: 31px;
+    margin-bottom: 17px;
+}
+
+.vision p {
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.9;
+    color: #e5e0ff;
+}
+
+/* FOOTER */
+footer {
+    background: #211d45;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+footer p {
+    color: #c4c0dc;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 850px) {
+    nav {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .links {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">COMPLAINT<span>CARE</span></div>
+
+    <div class="links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="how.html">How It Works</a>
+        <a href="features.html">Features</a>
+        <a href="dashboard.html">Dashboard</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>About <span>ComplaintCare</span></h1>
+    <p>
+        Making complaint management simple, transparent
+        and accessible through technology.
+    </p>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about">
+
+    <div class="about-image">
+        <img
+        src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1000"
+        alt="Team working together">
+    </div>
+
+    <div class="about-content">
+
+        <h2>Who <span>We Are</span></h2>
+
+        <p>
+            ComplaintCare is an Online Complaint Management System
+            designed to simplify the process of submitting,
+            managing and tracking complaints.
+        </p>
+
+        <p>
+            Our platform provides a common space where users
+            can register complaints, select the appropriate
+            department and monitor complaint status.
+        </p>
+
+        <p>
+            Administrators can review complaints, assign
+            departments and update the progress efficiently.
+        </p>
+
+        <div class="about-points">
+            <div class="point">
+                <span class="check">✓</span>
+                Simple complaint submission
+            </div>
+
+            <div class="point">
+                <span class="check">✓</span>
+                Transparent complaint tracking
+            </div>
+
+            <div class="point">
+                <span class="check">✓</span>
+                Organized department management
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MISSION SECTION -->
+<section class="mission">
+
+    <h2 class="section-title">Our Core Values</h2>
+
+    <p class="section-desc">
+        We aim to make complaint handling more organized
+        through a user-friendly digital platform.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <img
+            src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800"
+            alt="People collaborating">
+
+            <div class="card-content">
+                <h3>Our Mission</h3>
+                <p>
+                    To provide an easy and accessible platform
+                    for submitting complaints and helping
+                    departments manage them effectively.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800"
+            alt="Team discussion">
+
+            <div class="card-content">
+                <h3>Our Vision</h3>
+                <p>
+                    To create a transparent and organized
+                    complaint management environment where
+                    every concern can be properly addressed.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800"
+            alt="Team meeting">
+
+            <div class="card-content">
+                <h3>Our Commitment</h3>
+                <p>
+                    To support secure access, clear updates
+                    and efficient complaint handling through
+                    a simple digital system.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- VISION BANNER -->
+<section class="vision">
+
+    <h2>Your Concern Matters to Us</h2>
+
+    <p>
+        ComplaintCare brings users and departments together
+        through a centralized platform. Our goal is to make
+        complaint submission and tracking easier, more
+        organized and more transparent.
+    </p>
+
+</section>
+
+<footer>
+    <h2>COMPLAINTCARE</h2>
+    <p>Online Complaint Management System</p>
+    <p>© 2026 ComplaintCare. All Rights Reserved.</p>
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>
+```
